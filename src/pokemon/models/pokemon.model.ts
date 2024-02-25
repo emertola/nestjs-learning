@@ -1,19 +1,20 @@
 export interface Pokemon {
-  id: number
-  name: PokemonLangName
-  type: string[]
-  species: string
-  description: string
-  evolution: Evolution
-  profile: PokemonProfile
-  image: PokemonImage
+  id: number;
+  name: PokemonLangName;
+  type: string[];
+  species: string;
+  description: string;
+  evolution?: Evolution;
+  profile?: PokemonProfile;
+  image?: PokemonImage;
+  base?: any;
 }
 
 export interface PokemonLangName {
-  english: string
-  japanese: string
-  chinese: string
-  french: string
+  english: string;
+  japanese: string;
+  chinese: string;
+  french: string;
 }
 
 export interface Evolution {
@@ -22,14 +23,15 @@ export interface Evolution {
 }
 
 export interface PokemonProfile {
-  height: string
-  weight: string
-  gender: string
-  ability: string[][]
+  height: string;
+  weight: string;
+  gender: string;
+  ability?: string[][];
+  egg?: string[];
 }
 
 export interface PokemonImage {
-  sprite?: string
-  thumbnail?: string
-  hires?: string
+  sprite?: string;
+  thumbnail?: string;
+  hires?: string;
 }

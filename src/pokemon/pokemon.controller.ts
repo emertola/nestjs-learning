@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
-import { PokemonService } from './pokemon.service';
 import { Pokemon } from './models';
+import { PokemonService } from './pokemon.service';
 
 @Controller('pokemon')
 export class PokemonController {
@@ -10,5 +10,4 @@ export class PokemonController {
   getAllPokemon(): Pokemon[] {
     return this.pokemonService.getPokemonList();
   }
-
 }
