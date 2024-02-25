@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { pokedex } from './constants';
-import { Pokemon } from './models/pokemon.model';
+import { Pokemon } from './models';
 
 @Injectable()
 export class PokemonService {
