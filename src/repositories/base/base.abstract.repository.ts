@@ -1,5 +1,6 @@
 import {
   DeepPartial,
+  DeleteResult,
   FindManyOptions,
   FindOneOptions,
   FindOptionsWhere,
@@ -52,6 +53,10 @@ export abstract class BaseAbstractRepository<T extends HasId>
 
   public async findAll(options?: FindManyOptions<T>): Promise<T[]> {
     return await this.entity.find(options);
+  }
+
+  public async delete(id: number): Promise<DeleteResult> {
+    return await this.entity.delete(id);
   }
 
   public async remove(data: T): Promise<T> {
