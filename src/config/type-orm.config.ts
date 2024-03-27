@@ -2,7 +2,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 export const TYPE_ORM_CONFIG: TypeOrmModuleOptions = {
   type: 'postgres',
-  host: 'postgres://taskmanagementuser:rCNPAa8lWD3KoFQ10b9m4QFO8mwJnNo0@dpg-cnm6pknsc6pc739ll040-a/taskmanagement_unv0',
+  host: 'dpg-cnm6pknsc6pc739ll040-a',
   port: 5432,
   username: 'taskmanagementuser',
   password: 'rCNPAa8lWD3KoFQ10b9m4QFO8mwJnNo0',
