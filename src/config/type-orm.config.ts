@@ -16,7 +16,7 @@ export const TYPE_ORM_CONFIG: TypeOrmModuleOptions = {
 // export const TYPE_ORM_CONFIG: TypeOrmModuleOptions = {
 //   type: 'postgres',
 //   host: 'localhost',
-//   port: 5432,
+//   port: parseInt(process.env.PORT),
 //   username: 'postgres',
 //   password: 'postgres',
 //   database: 'taskmanagement',
