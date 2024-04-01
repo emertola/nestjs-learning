@@ -19,12 +19,17 @@ export class TaskRepository
     super(taskRepository);
   }
 
-  async getTasks(filterDto: GetTasksFilterDto): Promise<TaskEntity[]> {
+  async getTasks(
+    filterDto: GetTasksFilterDto,
+    user: UserEntity,
+  ): Promise<TaskEntity[]> {
     const { status, search } = filterDto;
     const query = this.taskRepository.createQueryBuilder('task');
 
+    query.where('task.userId = :userId', { userId: user.id });
+
     if (status) {
-      query.where('task.status = :status', { status });
+      query.andWhere('task.status = :status', { status });
     }
 
     if (search) {
