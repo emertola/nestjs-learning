@@ -4,6 +4,9 @@ import { GetTasksFilterDto } from 'src/tasks/dto/get-tasks-filter.dto';
 import { TaskEntity } from 'src/tasks/task.entity';
 import { Repository } from 'typeorm';
 import { BaseAbstractRepository } from '../base/base.abstract.repository';
+import { CreateTaskDto } from 'src/tasks/dto';
+import { UserEntity } from 'src/auth/user.entity';
+import { TaskStatus } from 'src/tasks/enums';
 
 export class TaskRepository
   extends BaseAbstractRepository<TaskEntity>
@@ -34,5 +37,23 @@ export class TaskRepository
     const tasks = await query.getMany();
 
     return tasks;
+  }
+
+  async createTask(
+    createTaskDto: CreateTaskDto,
+    user: UserEntity,
+  ): Promise<TaskEntity> {
+    const { title, description } = createTaskDto;
+
+    const task = new TaskEntity();
+    task.title = title;
+    task.description = description;
+    task.status = TaskStatus.OPEN;
+    task.user = user;
+
+    await task.save();
+    delete task.user;
+
+    return task;
   }
 }
