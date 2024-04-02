@@ -55,8 +55,8 @@ export abstract class BaseAbstractRepository<T extends HasId>
     return await this.entity.find(options);
   }
 
-  public async delete(id: number): Promise<DeleteResult> {
-    return await this.entity.delete(id);
+  public async delete(data: FindOptionsWhere<T>): Promise<DeleteResult> {
+    return await this.entity.delete(data);
   }
 
   public async remove(data: T): Promise<T> {
